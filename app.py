@@ -126,9 +126,14 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────
 # DATA LOADING & PREP
 # ─────────────────────────────────────────────────────────────
+
+# Resolve CSV path at module level — works reliably on Streamlit Cloud
+_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = os.path.join(_DIR, "test.csv")
+
 @st.cache_data
 def load_data():
-    df = pd.read_csv("Final-Sheet1-1.csv")
+    df = pd.read_csv(CSV_PATH)
     # Label mappings
     df['Education_Label'] = df['Education'].map({1:'Below College', 2:'College', 3:'Bachelor', 4:'Master', 5:'Doctor'})
     df['EnvironmentSatisfaction_Label'] = df['EnvironmentSatisfaction'].map({1:'Low', 2:'Medium', 3:'High', 4:'Very High'})
