@@ -66,7 +66,7 @@ div[data-testid="stTabs"] button[aria-selected="true"]{color:#34d399!important;b
 """, unsafe_allow_html=True)
 
 # ── CSV PATH ──────────────────────────────────────────────────────────────────
-CSV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Final-Sheet1-1.csv")
+CSV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test.csv")
 
 # ── DATA LOADING ──────────────────────────────────────────────────────────────
 @st.cache_data
