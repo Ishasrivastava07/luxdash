@@ -1,23 +1,3 @@
-import subprocess, sys
-
-def _install(pkg):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", pkg, "-q"])
-
-try:
-    import plotly
-except ImportError:
-    _install("plotly")
-
-try:
-    from scipy import stats
-except ImportError:
-    _install("scipy")
-
-try:
-    import sklearn
-except ImportError:
-    _install("scikit-learn")
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -148,7 +128,7 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv("EA.csv")
+    df = pd.read_csv("Final-Sheet1-1.csv")
     # Label mappings
     df['Education_Label'] = df['Education'].map({1:'Below College', 2:'College', 3:'Bachelor', 4:'Master', 5:'Doctor'})
     df['EnvironmentSatisfaction_Label'] = df['EnvironmentSatisfaction'].map({1:'Low', 2:'Medium', 3:'High', 4:'Very High'})
